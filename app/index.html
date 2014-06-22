@@ -1,12 +1,11 @@
+<!doctype html>
 <html>
-<head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/main.js"></script>
-</head>
-<body>
-<div id="status"> </div>
-<div id="notifs"> </div>
-<button type="button" id="but"> click </button>
-
-</body>
+	<head>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body onload="checkAuthorization()">
+		<h1>Login</h1>
+		<input type="text" placeholder="Authorization key" id="auth_key"/>
+		<input type="button" value="Submit" onclick="process()"/>
+	</body>
 </html>

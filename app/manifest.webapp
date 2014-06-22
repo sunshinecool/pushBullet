@@ -1,13 +1,25 @@
 {
-  "name": "Barcode Reader",
-  "description": "Reads bar code on an image and displays it.",
+
+  "name": "Push Bullet",
+
+  "description": "App to track status of speed posts in India",
+
   "launch_path": "/index.html",
+
   "icons": {
+
     "128": "postal_app.jpg"
+
   },
+
   "developer": {
+
     "name": "Venkata Jaswanth",
+
     "url": "http://www.codefreax.net"
+
   },
+
   "default_locale": "en"
+
 }

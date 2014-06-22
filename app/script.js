@@ -1,18 +1,32 @@
+function process()
+{
+	var auth_key = document.getElementById("auth_key")
+	if (auth_key.value.length == 0)
+		alert("Enter Authorization key");
+	else
+		localStorage.setItem("auth_key",auth_key.value);
+}
+
+function checkAuthorization()
+{
+	if (localStorage.getItem("auth_key") != 0)
+		window.location.href = "logged.html";
+}
 $(document).ready(function(){
     $("#but").click(function(){
     var key = "testkey";
-    alert("hi");
-    var json = '{"result":"true","count":"1"}';
-    obj=JSON.parse(json);
-    alert(obj.count);
    $.ajax({
         dataType: "jsonp",
         crossDomain: true,
         url:"http://10.129.26.108:7000/getnotifs/?key=sam",
         success:function(result){
-        alert(result);
-        console.log("success");
-        $("#notifs").append(result);
+		data = result;
+   	//	alert(data["count"]+" alert");
+		var text = "<table border=1>";
+		for (x=0;x<3;x++)
+			text += "<tr><td>"+data["notifarr"][x]+"</td></tr>";
+		text += "</table>"
+		$("#notifs").html(text);
         },
         error:getData
 //       function(result){
@@ -26,7 +40,12 @@ $(document).ready(function(){
       var dataJson = data;
      alert("getData called");
      console.log(data);
-     alert(data[0]);
+    alert(data["notifarr"]);
+	var text = "<table border=1>";
+	for (x=0;x<data["notifarr"].length;x++)
+		text += "<tr><td>"+data["notifarr"][x]+"</td></tr>";
+	text += "</table>"
+	$("#notifs").html(text);
    }
     });
 }); 
