@@ -1,0 +1,13 @@
+{
+  "name": "Barcode Reader",
+  "description": "Reads bar code on an image and displays it.",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "postal_app.jpg"
+  },
+  "developer": {
+    "name": "Venkata Jaswanth",
+    "url": "http://www.codefreax.net"
+  },
+  "default_locale": "en"
+}
