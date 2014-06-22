@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from models import Login,Data
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 # Create your views here.
 import json
 def json_response(func):
@@ -51,4 +52,21 @@ def test(request):
 #    data = json.dumps(data)
     print data
     return data
+
+def register(request):
+    username = request.POST['user']
+    password = request.POST['pass']
+    key = username
+    login = Login(username=username,password=password,key=key)
+    login.save()
+    return render_to_response('/bulllet/home.html',{'key':key})
+
+def push(request):
+    if request.user.is_authenticated():
+        return render_to_response('/bulllet/home.html')
+    else:
+        return HttpResponseRedirect('login')
+
+def login(request):
+    return render_to_response('/bulllet/templates/login.html')
 
